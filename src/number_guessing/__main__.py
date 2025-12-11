@@ -1,9 +1,11 @@
 from . import difficulty_level
+from . import game
 from . import prompts
 
 
 def print_welcome_message():
-    print("Welcome to the Number Guessing Game!\n")
+    print("Welcome to the Number Guessing Game!")
+    print("I am thinking of a number between 1 and 100.\n")
 
 
 def select_difficulty_level():
@@ -23,4 +25,8 @@ def select_difficulty_level():
 def main():
     print_welcome_message()
     selected_level = select_difficulty_level()
-    print(f"You have selected: {selected_level}\n")
+    
+    game.GameSession(
+        difficulty_level=selected_level,
+        number_to_guess=42
+    )()
