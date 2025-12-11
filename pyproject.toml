@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "number-guessing-cli"
+authors = [
+    {name = "Moralis", email = "moralis-coder@pm.me"},
+]
+description = "A simple number guessing game"
+readme = "README.md"
+requires-python = ">=3.6"
+keywords = ["game", "cli"]
+license = "MIT"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = []
+dynamic = ["version"]
+
+[project.scripts]
+number-guessing = "number_guessing.__main__:main"
