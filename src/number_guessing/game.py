@@ -1,7 +1,27 @@
 from random import randint
 from typing import Callable, Optional
 from .difficulty_level import DifficultyLevel
-from .prompts import InvalidGuessError, prompt_for_guess
+from .prompts import InvalidGuessError, prompt_for_guess, select_difficulty_level
+
+
+class Game:
+    def __init__(self, test_number: Optional[int] = None, prompt: Callable[[], DifficultyLevel] = select_difficulty_level):
+        self.test_number = test_number
+
+    def print_welcome_message():
+        print("Welcome to the Number Guessing Game!")
+        print("I am thinking of a number between 1 and 100.\n")
+    
+    def __call__(self):
+        self.print_welcome_message()
+        selected_level = select_difficulty_level()
+        GameSession(
+            difficulty_level=selected_level,
+            number_to_guess=self.test_number
+        )()
+    
+    def play(self):
+        self()
 
 
 class GameSession:
