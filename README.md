@@ -13,3 +13,7 @@ pip install .
 ```bash
 number-guessing --help
 ```
+
+## Additional Notes
+
+[Roadmap.sh - Exercise](https://roadmap.sh/projects/number-guessing-game) It is a breakable toy project.
