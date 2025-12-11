@@ -1,3 +1,6 @@
+from .difficulty_level import DIFFICULTY_OPTIONS
+
+
 class InvalidOptionError(Exception):
     pass
 
@@ -18,6 +21,20 @@ def prompt_select_from_options(prompt_message, options):
         return options[choice]
     except (ValueError, KeyError):    
         raise InvalidOptionError("Invalid option value provided.")
+
+
+def select_difficulty_level():
+    selected_level = None
+    while not selected_level:
+        try:
+            selected_level = prompt_select_from_options(
+                'Please select a difficulty level:',
+                DIFFICULTY_OPTIONS
+            )
+        except InvalidOptionError as e:
+            print(e)
+            print("Please try again.\n")
+    return selected_level
 
 
 def prompt_for_guess(prompt_message):
