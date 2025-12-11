@@ -1,12 +1,13 @@
-from typing import Callable
+from random import randint
+from typing import Callable, Optional
 from .difficulty_level import DifficultyLevel
 from .prompts import InvalidGuessError, prompt_for_guess
 
 
 class GameSession:
-    def __init__(self, difficulty_level: DifficultyLevel, number_to_guess: int, prompt: Callable[[str], int] = prompt_for_guess):
+    def __init__(self, difficulty_level: DifficultyLevel, number_to_guess: Optional[int] = None, prompt: Callable[[str], int] = prompt_for_guess):
         self.difficulty_level = difficulty_level
-        self.number_to_guess = number_to_guess
+        self.number_to_guess = randint(1, 100) if number_to_guess is None else number_to_guess
         self.attempts = 0
     
     def print_intro(self):

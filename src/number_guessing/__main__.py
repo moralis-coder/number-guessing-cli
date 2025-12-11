@@ -1,3 +1,4 @@
+from . import cli
 from . import difficulty_level
 from . import game
 from . import prompts
@@ -23,10 +24,12 @@ def select_difficulty_level():
 
 
 def main():
+    args = cli.parse_args()
+
     print_welcome_message()
     selected_level = select_difficulty_level()
     
     game.GameSession(
         difficulty_level=selected_level,
-        number_to_guess=42
+        number_to_guess=args.test_number
     )()

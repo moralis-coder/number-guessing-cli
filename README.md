@@ -11,5 +11,5 @@ pip install .
 ## Usage
 
 ```bash
-number-guessing
+number-guessing --help
 ```
